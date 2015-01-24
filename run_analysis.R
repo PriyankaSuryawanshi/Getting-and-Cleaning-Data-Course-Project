@@ -56,3 +56,6 @@ library(plyr)
 Data2<-aggregate(. ~subject + activity, Data, mean)
 Data2<-Data2[order(Data2$subject,Data2$activity),]
 write.table(Data2, file = "tidydata.txt",row.name=FALSE)
+
+#creating CodeBook.md
+write.table(paste("* ", names(Data2), sep=""), file="CodeBook.md", quote=FALSE,row.names=FALSE, col.names=FALSE, sep="\t")
